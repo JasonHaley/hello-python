@@ -11,13 +11,15 @@ spec:
     targetPort: 5000
   type: LoadBalancer
 
-
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-python
 spec:
+  selector:
+    matchLabels:
+      app: hello-python
   replicas: 4
   template:
     metadata:
